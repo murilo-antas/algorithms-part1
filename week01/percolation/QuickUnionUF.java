@@ -1,10 +1,10 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UFQuickFind {
+public class QuickUnionUF {
     private int[] id;
 
-    public UFQuickFind(int n) {
+    public QuickUnionUF(int n) {
         id = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -12,24 +12,26 @@ public class UFQuickFind {
         }
     }
 
-    void union(int p, int q) {
-        var idP = id[p];
-        var idQ = id[q];
-
-        for (int i = 0; i < id.length; i++) {
-            if (id[i] == idP) {
-                id[i] = idQ;
-            }
+    private int root(int i) {
+        while (i != id[i]) {
+            i = id[i];
         }
+        return i;
+    }
+
+    void union(int p, int q) {
+        int i = root(p);
+        int j = root(q);
+        id[i] = j;
     }
 
     boolean connected(int p, int q) {
-        return id[p] == id[q];
+        return root(p) == root(q);
     }
 
     public static void main(String[] args) {
         int n = StdIn.readInt();
-        UFQuickFind uf = new UFQuickFind(n);
+        QuickUnionUF uf = new QuickUnionUF(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();

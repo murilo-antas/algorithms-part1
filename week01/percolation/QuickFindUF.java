@@ -1,47 +1,35 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UFQuickUnionWeighted {
+public class QuickFindUF {
     private int[] id;
-    private int[] sz;
 
-    public UFQuickUnionWeighted(int n) {
+    public QuickFindUF(int n) {
         id = new int[n];
-        sz = new int[n];
 
         for (int i = 0; i < n; i++) {
             id[i] = i;
-            sz[i] = 1;
         }
-    }
-
-    private int root(int i) {
-        while (i != id[i]) {
-            i = id[i];
-        }
-        return i;
     }
 
     void union(int p, int q) {
-        int i = root(p);
-        int j = root(q);
-        if (i == j) {
-            return;
-        }
-        if (sz[i] < sz[j]) {
-            id[i] = j; sz[j] += sz[i];
-        } else {
-            id[j] = i; sz[i] += sz[j];
+        var idP = id[p];
+        var idQ = id[q];
+
+        for (int i = 0; i < id.length; i++) {
+            if (id[i] == idP) {
+                id[i] = idQ;
+            }
         }
     }
 
     boolean connected(int p, int q) {
-        return root(p) == root(q);
+        return id[p] == id[q];
     }
 
     public static void main(String[] args) {
         int n = StdIn.readInt();
-        UFQuickUnionWeighted uf = new UFQuickUnionWeighted(n);
+        QuickFindUF uf = new QuickFindUF(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
