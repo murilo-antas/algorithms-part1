@@ -20,7 +20,7 @@ public class PercolationStats {
         thresholds = new double[trials];
 
         for (int t = 0; t < trials; t++) {
-            var percolation = new Percolation(n);
+            Percolation percolation = new Percolation(n);
             while (!percolation.percolates()) {
                 int row = StdRandom.uniformInt(1, n + 1);
                 int col = StdRandom.uniformInt(1, n + 1);
@@ -53,7 +53,7 @@ public class PercolationStats {
         var ps = new PercolationStats(n, t);
         StdOut.println("mean\t\t\t = " + ps.mean());
         StdOut.println("stddev\t\t\t = " + ps.stddev());
-        StdOut.println("95% confidence interval\t = [" + ps.confidenceLo() + 
+        StdOut.println("95% confidence interval\t = [" + ps.confidenceLo() +
                 ", " + ps.confidenceHi() + "]");
     }
 }

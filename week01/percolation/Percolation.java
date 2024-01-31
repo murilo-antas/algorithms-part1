@@ -21,8 +21,8 @@ public class Percolation {
         // index 0 is the virtual top and index n * n + 1 is the virtual bottom
         virtualBottom = n * n + 1;
 
-        // Grid + 2 (virtualTop and virtualBottom) 
-        var arraySize = n * n + 2;
+        // Grid + 2 (virtualTop and virtualBottom)
+        int arraySize = n * n + 2;
         uf = new WeightedQuickUnionUF(arraySize);
         uf2 = new WeightedQuickUnionUF(n * n + 1);
         openSites = new boolean[arraySize];
@@ -45,7 +45,7 @@ public class Percolation {
     }
 
     private void uniteNeighbors(int row, int col) {
-        var current = rowColumnToIndex(row, col);
+        int current = rowColumnToIndex(row, col);
 
         // Up neighbor
         if (row - 1 > 0 && isOpen(row - 1, col)) {
@@ -124,7 +124,7 @@ public class Percolation {
             int col  = StdIn.readInt();
             percolation.open(row, col);
         }
-        
+
         StdOut.println("Percolates: " + percolation.percolates());
         StdOut.println("Number of open sites: " + percolation.numberOfOpenSites());
     }

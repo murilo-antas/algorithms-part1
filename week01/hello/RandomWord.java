@@ -4,12 +4,12 @@ import edu.princeton.cs.algs4.StdRandom;
 
 public class RandomWord {
     public static void main(String[] args) {
-        var count = 0;
+        int count = 0;
         String champion = "";
         // Read the strings from the standard input
         while (!StdIn.isEmpty()) {
             count++;
-            var word = StdIn.readString();
+            String word = StdIn.readString();
             champion = StdRandom.bernoulli(1 / (double) count) ? word : champion;
         }
         StdOut.println(champion);
