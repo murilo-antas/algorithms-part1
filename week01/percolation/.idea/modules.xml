@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/percolation.iml" filepath="$PROJECT_DIR$/.idea/modules/percolation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/percolation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/percolation.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/percolation.test.iml" filepath="$PROJECT_DIR$/.idea/modules/percolation.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algorithms, Part I.iml" filepath="$PROJECT_DIR$/Algorithms, Part I.iml" />
     </modules>
   </component>
 </project>
