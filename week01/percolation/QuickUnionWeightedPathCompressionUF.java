@@ -1,11 +1,11 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UFQuickUnionWeightedPathCompresion {
+public class QuickUnionWeightedPathCompressionUF {
     private int[] id;
     private int[] sz;
 
-    public UFQuickUnionWeightedPathCompresion(int n) {
+    public QuickUnionWeightedPathCompressionUF(int n) {
         id = new int[n];
         sz = new int[n];
 
@@ -30,9 +30,12 @@ public class UFQuickUnionWeightedPathCompresion {
             return;
         }
         if (sz[i] < sz[j]) {
-            id[i] = j; sz[j] += sz[i];
-        } else {
-            id[j] = i; sz[i] += sz[j];
+            id[i] = j;
+            sz[j] += sz[i];
+        }
+        else {
+            id[j] = i;
+            sz[i] += sz[j];
         }
     }
 
@@ -42,7 +45,7 @@ public class UFQuickUnionWeightedPathCompresion {
 
     public static void main(String[] args) {
         int n = StdIn.readInt();
-        UFQuickUnionWeightedPathCompresion uf = new UFQuickUnionWeightedPathCompresion(n);
+        QuickUnionWeightedPathCompressionUF uf = new QuickUnionWeightedPathCompressionUF(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
