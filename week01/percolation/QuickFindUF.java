@@ -13,8 +13,8 @@ public class QuickFindUF {
     }
 
     void union(int p, int q) {
-        var idP = id[p];
-        var idQ = id[q];
+        int idP = id[p];
+        int idQ = id[q];
 
         for (int i = 0; i < id.length; i++) {
             if (id[i] == idP) {
