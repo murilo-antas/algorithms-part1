@@ -39,9 +39,9 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectFrameBounds">
     <option name="x" value="106" />
     <option name="y" value="23" />
@@ -84,13 +84,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/murilo/Developer/algorithms-part1/week02/queues"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StackWithMax">
+    <configuration name="QueueWithTwoStacks" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="QueueWithTwoStacks" />
+      <module name="Algorithms, Part I" />
+      <method v="2" />
+    </configuration>
     <configuration name="RandomizedQueue" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="RandomizedQueue" />
+      <module name="Algorithms, Part I" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StackWithMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="StackWithMax" />
       <module name="Algorithms, Part I" />
       <method v="2" />
     </configuration>
