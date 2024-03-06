@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BruteCollinearPoints {
+public class FastCollinearPoints {
     private final List<LineSegment> segments;
 
-    public BruteCollinearPoints(Point[] points) {
+    public FastCollinearPoints(Point[] points) {
         if (points == null) {
             throw new IllegalArgumentException("points cannot be null");
         }
@@ -20,40 +20,45 @@ public class BruteCollinearPoints {
             }
         }
 
-        Point[] pointsAux = points.clone();
-
-        Arrays.sort(pointsAux);
-        for (int i = 0; i < pointsAux.length - 1; i++) {
-            if (pointsAux[i].compareTo(pointsAux[i + 1]) == 0) {
-                throw new IllegalArgumentException("points cannot have duplicates");
-            }
-        }
-
         segments = new ArrayList<>();
 
-        for (int p1 = 0; p1 < points.length - 3; p1++) {
-            for (int p2 = p1 + 1; p2 < points.length - 2; p2++) {
-                for (int p3 = p2 + 1; p3 < points.length - 1; p3++) {
-                    for (int p4 = p3 + 1; p4 < points.length; p4++) {
-                        double slopeToP2 = points[p1].slopeTo(points[p2]);
-                        double slopeToP3 = points[p1].slopeTo(points[p3]);
-                        double slopeToP4 = points[p1].slopeTo(points[p4]);
-                        if (slopeToP2 == slopeToP3 && slopeToP3 == slopeToP4) {
-                            Point[] line = new Point[] {
-                                    points[p1], points[p2], points[p3], points[p4]
-                            };
-                            Point min = min(line);
-                            Point max = max(line);
-                            segments.add(new LineSegment(min, max));
+        Point[] pointsAux = points.clone();
+
+        for (Point p : points) {
+            Arrays.sort(pointsAux, p.slopeOrder());
+            // StdOut.println("Point: " + p);
+
+            double slope = p.slopeTo(pointsAux[0]);
+            List<Point> currentSegment = new ArrayList<>();
+
+            for (int i = 1; i < pointsAux.length; i++) {
+                double currentSlope = p.slopeTo(pointsAux[i]);
+                if (currentSlope == Double.NEGATIVE_INFINITY) {
+                    throw new IllegalArgumentException("point cannot be duplicate");
+                }
+                // StdOut.println("Slope: " + slope + " Current slope: " + currentSlope + " Count: " + currentSegment.size());
+                if (currentSlope == slope) {
+                    currentSegment.add(pointsAux[i]);
+                }
+                if (currentSlope != slope || i == pointsAux.length - 1) {
+                    if (currentSegment.size() >= 3) {
+                        Point min = min(currentSegment);
+                        if (p.compareTo(min) < 0) {
+                            LineSegment lineSegment = new LineSegment(p, max(currentSegment));
+                            // StdOut.println(lineSegment);
+                            segments.add(lineSegment);
                         }
                     }
+                    currentSegment.clear();
+                    currentSegment.add(pointsAux[i]);
+                    slope = currentSlope;
                 }
             }
         }
     }
 
-    private Point min(Point[] points) {
-        Point min = points[0];
+    private Point min(List<Point> points) {
+        Point min = points.get(0);
 
         for (Point p : points) {
             if (p.compareTo(min) < 0) {
@@ -64,8 +69,8 @@ public class BruteCollinearPoints {
         return min;
     }
 
-    private Point max(Point[] points) {
-        Point max = points[0];
+    private Point max(List<Point> points) {
+        Point max = points.get(0);
 
         for (Point p : points) {
             if (p.compareTo(max) > 0) {
@@ -102,7 +107,7 @@ public class BruteCollinearPoints {
         }
         StdDraw.show();
 
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+        FastCollinearPoints collinear = new FastCollinearPoints(points);
         for (LineSegment segment : collinear.segments()) {
             StdOut.println(segment);
             segment.draw();

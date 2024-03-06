@@ -8,9 +8,7 @@
  *
  ******************************************************************************/
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Comparator;
 
@@ -62,7 +60,22 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        return ((double) that.y - (double) this.y) / ((double) that.x - (double) this.x);
+        double slope;
+        if (x == that.x && y == that.y) {
+            slope = Double.NEGATIVE_INFINITY;
+        }
+        else if (x == that.x) {
+            slope = Double.POSITIVE_INFINITY;
+        }
+        else if (y == that.y) {
+            slope = +0.0;
+        }
+        else {
+            double deltaY = (double) that.y - (double) this.y;
+            double deltaX = (double) that.x - (double) this.x;
+            slope = deltaY / deltaX;
+        }
+        return slope;
     }
 
     /**
@@ -90,12 +103,18 @@ public class Point implements Comparable<Point> {
      * @return the Comparator that defines this ordering on points
      */
     public Comparator<Point> slopeOrder() {
-        return new Order();
+        return new SlopeOrder(this);
     }
 
-    private class Order implements Comparator<Point> {
+    private class SlopeOrder implements Comparator<Point> {
+        private Point origin;
+
+        public SlopeOrder(Point origin) {
+            this.origin = origin;
+        }
+
         public int compare(Point p1, Point p2) {
-            return Double.compare(Point.this.slopeTo(p1), Point.this.slopeTo(p2));
+            return Double.compare(origin.slopeTo(p1), origin.slopeTo(p2));
         }
     }
 
@@ -116,28 +135,5 @@ public class Point implements Comparable<Point> {
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        int n = in.readInt();
-        Point[] points = new Point[n];
-        for (int i = 0; i < n; i++) {
-            int x = in.readInt();
-            int y = in.readInt();
-            points[i] = new Point(x, y);
-        }
-
-        StdDraw.enableDoubleBuffering();
-        StdDraw.setXscale(0, 32768);
-        StdDraw.setYscale(0, 32768);
-        for (Point p : points) {
-            p.draw();
-        }
-        StdDraw.show();
-
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
-        for (LineSegment segment : collinear.segments()) {
-            StdOut.println(segment);
-            segment.draw();
-        }
-        StdDraw.show();
     }
 }
