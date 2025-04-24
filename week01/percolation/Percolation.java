@@ -27,12 +27,10 @@ public class Percolation {
         uf2 = new WeightedQuickUnionUF(n * n + 1);
         openSites = new boolean[arraySize];
 
-        for (int i = 0; i < arraySize; i++) {
-            // Unite first row with virtualTop
-            if (i > 0 && i <= n) {
-                uf.union(virtualTop, i);
-                uf2.union(virtualTop, i);
-            }
+        // Unite first row with virtualTop
+        for (int i = 1; i <= n; i++) {
+            uf.union(virtualTop, i);
+            uf2.union(virtualTop, i);
         }
 
         // Virtual top and bottom start open
@@ -121,7 +119,7 @@ public class Percolation {
         Percolation percolation = new Percolation(n);
         while (!StdIn.isEmpty()) {
             int row = StdIn.readInt();
-            int col  = StdIn.readInt();
+            int col = StdIn.readInt();
             percolation.open(row, col);
         }
 
