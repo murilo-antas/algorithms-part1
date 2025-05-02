@@ -19,6 +19,7 @@
            * class  naming convention (defer to Checkstyle)
            * method naming convention (defer to Checkstyle)
            * unused field (defer to PMD/IntelliJ since it highlight entire class)
+           * constructor throws an exception, so vulnerable to Finalizer attack
            * class defines compareTo() and inherits equals()
       -->
     <Match>
@@ -32,6 +33,7 @@
                           NM_METHOD_NAMING_CONVENTION,
                           NM_CLASS_NAMING_CONVENTION,
                           NM_FIELD_NAMING_CONVENTION,
+                          CT_CONSTRUCTOR_THROW,
                           EQ_COMPARETO_USE_OBJECT_EQUALS" />
     </Match>
 
@@ -339,7 +341,7 @@
 
     <!-- generating random integers before StdRandom.uniform() is introduced -->
     <Match>
-        <Class name = "~(RollDice|TenDice|RandomWalker|RandomWalkers|Art)(126)?" />
+	<Class name = "~(RollDice|TenDice|RandomWalker|RandomWalkers|Art|MusicalDiceGame|PerfectShuffle)(126)?" />
         <BugPattern name="DM_NEXTINT_VIA_NEXTDOUBLE" />
     </Match>
 
@@ -396,6 +398,12 @@
     <Match>
         <Class name = "~PokerHand|PokerHandWild|Language" />
         <BugPattern name="SBSC_USE_STRINGBUFFER_CONCATENATION" />
+    </Match>
+
+    <!-- arithmetic overflow on AppleSharing or AppleSharingGame -->
+    <Match>
+	<Class name = "~(AppleSharing|AppleSharingGame)" />
+        <BugPattern name="IM_AVERAGE_COMPUTATION_COULD_OVERFLOW" />
     </Match>
 
     <!--  ***********************************************************************  -->
@@ -474,6 +482,12 @@
     <Match>
         <Class name = "~(BoggleBoard)(226)?" />
         <BugPattern name="FE_FLOATING_POINT_EQUALITY,HE_HASHCODE_USE_OBJECT_EQUALS" />
+    </Match>
+
+    <!-- DataSet currently use public static instance variables -->
+    <Match>
+        <Class name = "~(DataSet)(226)?" />
+        <BugPattern name="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" />
     </Match>
 
     <!--  ***********************************************************************  -->

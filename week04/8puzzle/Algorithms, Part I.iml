@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.lift" />
       <excludePattern pattern="*.iml" />
       <excludePattern pattern="*.class" />
+      <excludePattern pattern=".noai" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
