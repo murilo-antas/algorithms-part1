@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,9 +31,9 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectFrameBounds">
     <option name="x" value="106" />
     <option name="y" value="23" />
@@ -79,57 +76,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.InteractivePercolationVisualizer.executor": "Run",
-    "Application.Percolation.executor": "Debug",
-    "Application.PercolationVisualizer.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/murilo/Developer/algorithms-part1/week01/percolation",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Console"
+    "last_opened_file_path": "/Users/murilo/Developer/algorithms-part1/week01/percolation"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.InteractivePercolationVisualizer">
-    <configuration name="InteractivePercolationVisualizer" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="InteractivePercolationVisualizer" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Percolation" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Percolation" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="sedgewick60.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PercolationVisualizer" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="sedgewick60.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="QuickUnionWeightedPathCompressionUF" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="QuickUnionWeightedPathCompressionUF" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="1 2 3 4 " />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <created>1745462330190</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1745462330190</updated>
-    </task>
-    <servers />
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
