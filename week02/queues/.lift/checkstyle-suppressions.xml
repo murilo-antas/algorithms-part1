@@ -236,9 +236,9 @@
     <suppress checks="IllegalImport"
               files="(PercolationVisualizer).java"/>
 
-    <!-- has a quadruple nested loop -->
+    <!-- has (or might have) a quadruple nested loop -->
     <suppress checks="NestedForDepth"
-              files="(BruteCollinearPoints|Board|SolverVisualizer).java"/>
+              files="(BruteCollinearPoints|Board|SolverVisualizer|WeakLearner).java"/>
 
     <!-- UnicodeTest has non-ASCII characters in header -->
     <suppress id="NotASCII"
@@ -330,6 +330,7 @@
                          |PointST|KdTreeST|
                          |WordNet|ShortestCommonAncestor|
                          |SeamCarver|
+                         |Clustering|WeakLearner|BoostingAlgorithm|
                          |MoveToFront|BurrowsWheeler|CircularSuffixArray|
                          |HelloGoodbye|RightTriangle|GreatCircle|CMYKtoRGB|
                          |GeneralizedHarmonic|BandMatrix|RandomWalker|RandomWalkers|

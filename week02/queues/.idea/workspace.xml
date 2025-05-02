@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +19,6 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
     <option name="SCHEME" value="Project" />
   </component>
   <component name="FindBugs-IDEA-Workspace">
@@ -39,9 +31,9 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectFrameBounds">
     <option name="x" value="106" />
     <option name="y" value="23" />
@@ -84,31 +76,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/murilo/Developer/algorithms-part1/week02/queues"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.StackWithMax">
-    <configuration name="QueueWithTwoStacks" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="QueueWithTwoStacks" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RandomizedQueue" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="RandomizedQueue" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration name="StackWithMax" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="StackWithMax" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TodoView">
     <todo-panel id="selected-file">
