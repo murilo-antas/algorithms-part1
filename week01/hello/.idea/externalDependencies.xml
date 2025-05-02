@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ExternalDependencies">
     <plugin id="CheckStyle-IDEA" />
-    <plugin id="org.jetbrains.plugins.spotbugs" />
     <plugin id="org.jetbrains.plugins.terminal" />
   </component>
 </project>
