@@ -54,12 +54,14 @@ public class KdTree {
                   Point2D.X_ORDER.compare(p, x.p) :
                   Point2D.Y_ORDER.compare(p, x.p);
 
-        RectHV newRect = createNewRect(x, isVertical, cmp < 0);
+        RectHV newRect = null;
 
         if (cmp < 0) {
+            if (x.lb == null) newRect = createNewRect(x, isVertical, true);
             x.lb = insert(x.lb, p, newRect, !isVertical);
         }
         else {
+            if (x.rt == null) newRect = createNewRect(x, isVertical, false);
             x.rt = insert(x.rt, p, newRect, !isVertical);
         }
 
