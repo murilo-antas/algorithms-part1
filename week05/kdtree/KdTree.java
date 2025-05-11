@@ -67,15 +67,23 @@ public class KdTree {
     }
 
     private RectHV createNewRect(Node x, boolean isVertical, boolean isLeft) {
+        // Cache rectangle and point coordinates
+        double xmin = x.rect.xmin();
+        double ymin = x.rect.ymin();
+        double xmax = x.rect.xmax();
+        double ymax = x.rect.ymax();
+        double px = x.p.x();
+        double py = x.p.y();
+
         if (isVertical) {
             return isLeft ?
-                   new RectHV(x.rect.xmin(), x.rect.ymin(), x.p.x(), x.rect.ymax()) :
-                   new RectHV(x.p.x(), x.rect.ymin(), x.rect.xmax(), x.rect.ymax());
+                   new RectHV(xmin, ymin, px, ymax) :
+                   new RectHV(px, ymin, xmax, ymax);
         }
         else {
             return isLeft ?
-                   new RectHV(x.rect.xmin(), x.rect.ymin(), x.rect.xmax(), x.p.y()) :
-                   new RectHV(x.rect.xmin(), x.p.y(), x.rect.xmax(), x.rect.ymax());
+                   new RectHV(xmin, ymin, xmax, py) :
+                   new RectHV(xmin, py, xmax, ymax);
         }
     }
 
